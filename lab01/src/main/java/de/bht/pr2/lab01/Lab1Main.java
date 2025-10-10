@@ -49,7 +49,7 @@ public class Lab1Main {
           students.add(student);
           System.out.println("Erfolg: " + student);
         } catch (StudentParseException | RegistrationNumberException | WrongCourseOfStudiesException | NotPaidTuitionFeeException e) {
-            System.out.println(e);
+            System.out.println("\033[34mFehler: " + e.getMessage() + "\033[0m");
             e.printStackTrace(); //alternativ System.out
         }
 
