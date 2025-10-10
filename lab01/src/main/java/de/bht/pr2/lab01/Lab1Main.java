@@ -43,9 +43,16 @@ public class Lab1Main {
 
     // Parse each line ...
     for (String datenZeile : data) {
-      // ... and try to create a Student object
-      Student student = new Student(datenZeile);
-      students.add(student);
+        // ... and try to create a Student object
+        try {
+          Student student = new Student(datenZeile);
+          students.add(student);
+          System.out.println("Erfolg: " + student);
+        } catch (StudentParseException | RegistrationNumberException | WrongCourseOfStudiesException | NotPaidTuitionFeeException e) {
+            System.out.println(e);
+            e.printStackTrace(); //alternativ System.out
+        }
+
     }
 
     // Print all students which could be parsed
