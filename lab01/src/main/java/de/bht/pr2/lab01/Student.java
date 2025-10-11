@@ -33,7 +33,7 @@ public class Student {
     if(data.length != 4) throw new StudentParseException("Zeile im falsche Format: " + dataRow);
       else if(data[1].length() != 5) throw new RegistrationNumberException(data[0] + ": Matrikelnummer fehlerhaft: " + data[1]);
       else if(!studien.contains(data[2])) throw new WrongCourseOfStudiesException(data[0] + ": Unbekannter Studiengang: " + data[2]);
-      else if(!data[3].equals("312")) throw new NotPaidTuitionFeeException(data[0] + " muss noch " + (312 - stringToInt(data[3]) + "€ zahlen."));
+      else if(!data[3].equals("312")) throw new NotPaidTuitionFeeException(data[0] + " muss noch " + (TUITION_FEE - stringToInt(data[3]) + "€ zahlen."));
       return data;
   }
 
