@@ -66,6 +66,7 @@ class MyTest {
   @Order(3)
   void testSortAlgorithm() {
     int[] originalArray = {5, 7, 12, 21, 34, 2};
+    int[] sortedArray = {2, 5, 7, 12, 21, 34};
     int[] arrayToSort0 = Arrays.copyOf(originalArray, originalArray.length);
     int[] arrayToSort1 = Arrays.copyOf(originalArray, originalArray.length);
     int[] arrayToSort2 = Arrays.copyOf(originalArray, originalArray.length);
@@ -73,14 +74,11 @@ class MyTest {
     int[] sortedArrayInsertion = InsertionSort.sort(arrayToSort1);
     int[] sortedArrayQuick = QuickSort.sort(arrayToSort2);
 
-    boolean arrayCompareToBubble = Arrays.equals(originalArray, sortedArrayBubble);
-    boolean arrayCompareToInsertion = Arrays.equals(originalArray, sortedArrayInsertion);
-    boolean arrayCompareToQuick = Arrays.equals(originalArray, sortedArrayQuick);
 
     assertAll("Comparing originalArray to different sorting Algorithms: ",
-            () -> assertFalse(arrayCompareToBubble),
-            () -> assertFalse(arrayCompareToInsertion),
-            () -> assertFalse(arrayCompareToQuick)
+            () -> assertArrayEquals(sortedArray, sortedArrayBubble),
+            () -> assertArrayEquals(sortedArray, sortedArrayInsertion),
+            () -> assertArrayEquals(sortedArray, sortedArrayQuick)
     );
 
   }
