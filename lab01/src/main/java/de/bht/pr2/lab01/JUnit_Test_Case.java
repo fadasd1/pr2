@@ -50,7 +50,6 @@ void testInvalidsConstructor() {
     String regNumEx = "Leon Lied,70.012,Screen Based Media,312";
     String regNumEx1 = "Greta Graf,7-00-06,Medieninformatik,312";
     String wrongStudEx = "Ingrid Insel,70009,Musik und Tanz,312";
-
     assertAll(
             () -> assertThrows(StudentParseException.class, () -> new Student(parseEx)),
             () -> assertThrows(StudentParseException.class, () -> new Student(parseEx1)),
