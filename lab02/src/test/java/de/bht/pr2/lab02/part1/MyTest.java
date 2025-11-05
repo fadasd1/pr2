@@ -70,8 +70,7 @@ class MyTest {
     int[] sortedArrayBubble = BubbleSort.sort(Arrays.copyOf(originalArray, originalArray.length));
     int[] sortedArrayInsertion = InsertionSort.sort(Arrays.copyOf(originalArray, originalArray.length));
     int[] sortedArrayQuick = QuickSort.sort(Arrays.copyOf(originalArray, originalArray.length));
-
-
+    
     assertAll("Comparing originalArray to different sorting Algorithms: ",
             () -> assertArrayEquals(sortedArray, sortedArrayBubble),
             () -> assertArrayEquals(sortedArray, sortedArrayInsertion),
