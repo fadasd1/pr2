@@ -31,9 +31,12 @@ public class Student {
   private static String[] errorChecker(String dataRow) throws StudentParseException, RegistrationNumberException, WrongCourseOfStudiesException, NotPaidTuitionFeeException {
     String[] data = dataRow.split(",");
     if(data.length != 4) throw new StudentParseException("Zeile im falsche Format: " + dataRow);
-      else if(data[1].length() != 5) throw new RegistrationNumberException(data[0] + ": Matrikelnummer fehlerhaft: " + data[1]);
+      else {
+      String regNumber = data[1];
+      if(regNumber.length() != 5) throw new RegistrationNumberException(data[0] + ": Matrikelnummer fehlerhaft: " + regNumber);
       else if(!studien.contains(data[2])) throw new WrongCourseOfStudiesException(data[0] + ": Unbekannter Studiengang: " + data[2]);
-      else if(!data[3].equals("312")) throw new NotPaidTuitionFeeException(data[0] + " muss noch " + (TUITION_FEE - stringToInt(data[3]) + "€ zahlen."));
+      else if(stringToInt(data[3]) != TUITION_FEE) throw new NotPaidTuitionFeeException(data[0] + " muss noch " + (TUITION_FEE - stringToInt(data[3]) + "€ zahlen."));
+    }
       return data;
   }
 

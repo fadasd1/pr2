@@ -1,7 +1,6 @@
 package de.bht.pr2.lab02.part1;
 
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import de.bht.pr2.lab02.part2.BubbleSort;
@@ -72,7 +71,7 @@ class MyTest {
     int[] sortedArrayQuick = QuickSort.sort(Arrays.copyOf(originalArray, originalArray.length));
 
 
-    assertAll("Comparing originalArray to different sorting Algorithms: ",
+    assertAll("Comparing sortedArray to different sorting Algorithms: ",
             () -> assertArrayEquals(sortedArray, sortedArrayBubble),
             () -> assertArrayEquals(sortedArray, sortedArrayInsertion),
             () -> assertArrayEquals(sortedArray, sortedArrayQuick)
